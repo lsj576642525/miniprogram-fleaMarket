@@ -1,0 +1,37 @@
+<!-- miniprogram/pages/release/release.wxml -->
+<view class="release-books cu-list menu menu-avatar" bindtap="releaseBooksOnTap">
+  <view class="cu-item">
+    <view class="cu-avatar round lg" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);"></view>
+    <view class='content'>
+      <view class='text-grey'>闲置书本</view>
+      <view class='text-gray text-sm'>专门为闲置书本定制的交易方式！</view>
+    </view>
+  </view>
+</view>
+<view class="release-goods cu-list menu menu-avatar" bindtap="releaseGoodsOnTap">
+  <view class="cu-item">
+    <view class="cu-avatar round lg" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);"></view>
+    <view class='content'>
+      <view class='text-grey'>闲置物品</view>
+      <view class='text-gray text-sm'>手机数码、代步工具、服装外套戳这里</view>
+    </view>
+  </view>
+</view>
+<view class="release-skills cu-list menu menu-avatar" bindtap="releaseSkillsOnTap">
+  <view class="cu-item">
+    <view class="cu-avatar round lg" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);"></view>
+    <view class='content'>
+      <view class='text-grey'>技能服务</view>
+      <view class='text-gray text-sm'>考试技巧、面试经历、手工烘焙、陪聊散心戳这里</view>
+    </view>
+  </view>
+</view>
+<view class="release-phone cu-list menu menu-avatar" bindtap="releasePhoneOnTap">
+  <view class="cu-item">
+    <view class="cu-avatar round lg" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);"></view>
+    <view class='content'>
+      <view class='text-grey'>手机回收</view>
+      <view class='text-gray text-sm'>把手机高价直接卖给回收宝、立刻换钱</view>
+    </view>
+  </view>
+</view>
