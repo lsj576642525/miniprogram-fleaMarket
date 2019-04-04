@@ -1,1 +1,4 @@
 /* miniprogram/components/pages/release/release.wxss */
+form-group .title {
+  min-width: calc(4em + 15px);
+}

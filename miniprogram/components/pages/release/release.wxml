@@ -1,2 +1,210 @@
-<!--miniprogram/components/pages/release/release.wxml-->
-<text>miniprogram/components/pages/release/release.wxml</text>
+<!-- miniprogram/components/pages/release/release.wxml -->
+<view wx:if="{{name === '1'}}">
+  <form bindsubmit="releaseTap">
+    <view class="cu-form-group">
+      <view class='title'>我有</view>
+      <input placeholder="如传播学原理" class='radius' name='book'></input>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>数量</view>
+      <input placeholder="请输入出售的商品数量" class='radius' name='count' value="1"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>院系</view>
+      <picker bindchange="facultyPickerChange" value="{{facultyindex}}" range="{{faculty}}" name='faculty'>
+        <view class="picker">{{facultyindex?faculty[facultyindex]:'请选择课本的适用院系'}}</view>
+      </picker>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>年级</view>
+      <picker bindchange="gradePickerChange" value="{{gradeindex}}" range="{{grade}}" name='grade'>
+        <view class="picker">{{gradeindex?grade[gradeindex]:'请选择课本的适用年级'}}</view>
+      </picker>
+    </view>
+    <view class="cu-form-group" wx:hide="{{modalName==null}}">
+      <textarea placeholder="选填，说说你和这本书的故事吧" maxlength="-1" disabled="{{modalName!=null}}" placeholder-class='placeholder'></textarea>
+    </view>
+    <view class="cu-form-group">
+      <view class="grid col-3 grid-square flex-sub">
+        <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);"></view>
+        <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);">
+          <view class="cu-tag bg-red">
+            <text class='icon-close'></text>
+          </view>
+        </view>
+        <view class="padding-xs solids">
+          <text class='icon-cameraadd'></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-form-group margin-top">
+      <view class='title'>售价</view>
+      <input placeholder="请输入数字价格" class='radius' name='money'></input>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>原价</view>
+      <input placeholder="请输入购入时的原价，选填" class='radius' name='preMoney'></input>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>发货方式</view>
+      <text>当面交易</text>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>收款方式</view>
+      <text>平台外支付</text>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>联系方式</view>
+      <input placeholder="请输入手机号" class='radius' name='phonenumber'></input>
+      <view class="cu-capsule radius">
+        <view class='cu-tag bg-blue '>+86</view>
+        <view class="cu-tag line-blue">中国大陆</view>
+      </view>
+    </view>
+    <view class="padding flex flex-direction">
+      <button class='cu-btn block bg-green margin-tb-sm lg' type='primary' form-type="submit">
+        发布
+      </button>
+    </view>
+  </form>
+</view>
+<view wx:if="{{name === '2'}}">
+  <form bindsubmit="releaseTap">
+    <view class="cu-form-group">
+      <view class='title'>我有</view>
+      <input placeholder="如八成新自行车、碎花裙等" class='radius' name='book'></input>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>数量</view>
+      <input placeholder="请输入出售的商品数量" class='radius' name='count' value="1"></input>
+    </view>
+    <view class="cu-form-group" wx:hide="{{modalName==null}}">
+      <textarea placeholder="选填，添加详细的描述（细节、购买信息、闲置原因）有助于快速卖出噢~" maxlength="-1" disabled="{{modalName!=null}}" placeholder-class='placeholder'></textarea>
+    </view>
+    <view class="cu-form-group">
+      <view class="grid col-3 grid-square flex-sub">
+        <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);"></view>
+        <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);">
+          <view class="cu-tag bg-red">
+            <text class='icon-close'></text>
+          </view>
+        </view>
+        <view class="padding-xs solids">
+          <text class='icon-cameraadd'></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-form-group margin-top">
+      <view class='title'>售价</view>
+      <input placeholder="请输入数字价格" class='radius' name='money'></input>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>原价</view>
+      <input placeholder="请输入购入时的原价，选填" class='radius' name='preMoney'></input>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>发货方式</view>
+      <text>当面交易</text>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>收款方式</view>
+      <text>平台外支付</text>
+    </view>
+    <view class="cu-form-group margin-top">
+      <view class='title'>选择分类</view>
+      <view>
+        <view class="cu-btn {{formValue.aaa==1?'bg-green':'line-green'}} round sm" id="wenti" catch:tap="change">
+          文体数码
+        </view>
+        <view class="cu-btn {{formValue.bbb==1?'bg-green':'line-green'}} round sm" id="fushi" catch:tap="change">
+          服饰
+        </view>
+        <view class="cu-btn {{formValue.ccc==1?'bg-green':'line-green'}} round sm" id="baihuo" catch:tap="change">
+          日用百货
+        </view>
+      </view>
+    </view>
+    <view class="cu-form-group margin-top">
+      <view class='title'>联系方式</view>
+      <input placeholder="请输入手机号" class='radius' name='phonenumber'></input>
+      <view class="cu-capsule radius">
+        <view class='cu-tag bg-blue '>+86</view>
+        <view class="cu-tag line-blue">中国大陆</view>
+      </view>
+    </view>
+    <view class="padding flex flex-direction">
+      <button class='cu-btn block bg-green margin-tb-sm lg' type='primary' form-type="submit">
+        发布
+      </button>
+    </view>
+  </form>
+</view>
+<view wx:if="{{name === '3'}}">
+  <form bindsubmit="releaseTap">
+    <view class="cu-form-group">
+      <view class='title'>我有</view>
+      <input placeholder="如传播学原理" class='radius' name='book'></input>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>数量</view>
+      <input placeholder="请输入出售的商品数量" class='radius' name='count' value="1"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>院系</view>
+      <picker bindchange="facultyPickerChange" value="{{facultyindex}}" range="{{faculty}}" name='faculty'>
+        <view class="picker">{{facultyindex?faculty[facultyindex]:'请选择课本的适用院系'}}</view>
+      </picker>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>年级</view>
+      <picker bindchange="gradePickerChange" value="{{gradeindex}}" range="{{grade}}" name='grade'>
+        <view class="picker">{{gradeindex?grade[gradeindex]:'请选择课本的适用年级'}}</view>
+      </picker>
+    </view>
+    <view class="cu-form-group" wx:hide="{{modalName==null}}">
+      <textarea placeholder="选填，说说你和这本书的故事吧" maxlength="-1" disabled="{{modalName!=null}}" placeholder-class='placeholder'></textarea>
+    </view>
+    <view class="cu-form-group">
+      <view class="grid col-3 grid-square flex-sub">
+        <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);"></view>
+        <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);">
+          <view class="cu-tag bg-red">
+            <text class='icon-close'></text>
+          </view>
+        </view>
+        <view class="padding-xs solids">
+          <text class='icon-cameraadd'></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-form-group margin-top">
+      <view class='title'>售价</view>
+      <input placeholder="请输入数字价格" class='radius' name='money'></input>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>原价</view>
+      <input placeholder="请输入购入时的原价，选填" class='radius' name='preMoney'></input>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>发货方式</view>
+      <text>当面交易</text>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>收款方式</view>
+      <text>平台外支付</text>
+    </view>
+    <view class="cu-form-group">
+      <view class='title'>联系方式</view>
+      <input placeholder="请输入手机号" class='radius' name='phonenumber'></input>
+      <view class="cu-capsule radius">
+        <view class='cu-tag bg-blue '>+86</view>
+        <view class="cu-tag line-blue">中国大陆</view>
+      </view>
+    </view>
+    <view class="padding flex flex-direction">
+      <button class='cu-btn block bg-green margin-tb-sm lg' type='primary' form-type="submit">
+        发布
+      </button>
+    </view>
+  </form>
+</view>

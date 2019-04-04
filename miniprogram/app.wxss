@@ -1,5 +1,5 @@
 /**app.wxss**/
-@import './style/colorui.wxss';
+@import './style/main.wxss';
 @import './style/icon.wxss';
 
 .container {
